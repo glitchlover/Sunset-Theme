@@ -9,7 +9,7 @@
   --orange-pink: #fd7f85;
   --pink: #FD72AD;
   --pink2: #df4aa89f;
-  --purple: #cb84fd; 
+  --purple: #b685fc; 
   --purple2: #f972fd;
   --blue: rgb(162, 180, 252);
   --dark: #100f18;
@@ -30,12 +30,12 @@
   --font-size-status-bar: clamp(1rem, 50% + 1vw + 1vh, 1rem);
   --font-small: clamp(.2em, 70%, .5em);
   --font-medium: clamp(.3rem, 50% + 1vw + 1vh, .7rem);
-  --font-size-h1 : clamp(1.95rem,50% + 1vw + 1vh,2rem);
-  --font-size-h2 : clamp(1.85rem,50% + 1vw + 1vh,1.95rem);
-  --font-size-h3 : clamp(1.75rem,50% + 1vw + 1vh,1.85rem);
+  --font-size-h1 : clamp(2.50rem,50% + 1vw + 1vh,2rem);
+  --font-size-h2 : clamp(2.20rem,50% + 1vw + 1vh,1.95rem);
+  --font-size-h3 : clamp(1.95rem,50% + 1vw + 1vh,1.85rem);
   --font-size-h4 : clamp(1.65rem,50% + 1vw + 1vh,1.75rem);
-  --font-size-h5 : clamp(1.55rem,50% + 1vw + 1vh,1.65rem);
-  --font-size-h6 : clamp(1.55rem,50% + 1vw + 1vh,1.65rem);
+  --font-size-h5 : clamp(1.45rem,50% + 1vw + 1vh,1.65rem);
+  --font-size-h6 : clamp(1.35rem,50% + 1vw + 1vh,1.65rem);
 }
 
 .theme-dark {
@@ -226,6 +226,7 @@ h6::before{
 /* In Editing Mode */
 .markdown-preview-view h1
 {
+font-size: var(--font-size-h1);
 font-weight: 600;
 color: var(--text-title-h1);
 line-height: var(--line-height-header-preview);
@@ -234,53 +235,48 @@ text-align: left;
 
 .markdown-preview-view h2
 {
-font-family: var(--font-family-mdpreview);
-font-weight: var(--text-title-font-weight);
-font-size: var(--font-size-h2) !important;
-color: var(--text-title-h2);
-line-height: var(--line-height-header-preview);
-text-align: left;
+  font-size: var(--font-size-h2);
+  font-weight: 600;
+  color: var(--text-title-h2);
+  line-height: var(--line-height-header-preview);
+  text-align: left;
 }
 
 .markdown-preview-view h3
 {
-font-family: var(--font-family-mdpreview);
-font-weight: var(--text-title-font-weight);
-font-size: var(--font-size-h3) !important;
-color: var(--text-title-h3);
-line-height: var(--line-height-header-preview);
-text-align: left;
+  font-size: var(--font-size-h3);
+  font-weight: 600;
+  color: var(--text-title-h3);
+  line-height: var(--line-height-header-preview);
+  text-align: left;;
 }
 
 .markdown-preview-view h4
 {
-font-family: var(--font-family-mdpreview);
-font-weight: var(--text-title-font-weight);
-font-size: var(--font-size-h4) !important;
-color: var(--text-title-h4);
-line-height: var(--line-height-header-preview);
-text-align: left;
+  font-size: var(--font-size-h4);
+  font-weight: 600;
+  color: var(--text-title-h4);
+  line-height: var(--line-height-header-preview);
+  text-align: left;
 }
 
 .markdown-preview-view h5
 {
-font-family: var(--font-family-mdpreview);
-font-weight: var(--text-title-font-weight);
-font-size: var(--font-size-h5) !important;
-color: var(--text-title-h5);
-line-height: var(--line-height-header-preview);
-text-align: left;
+  font-size: var(--font-size-h5);
+  font-weight: 600;
+  color: var(--text-title-h5);
+  line-height: var(--line-height-header-preview);
+  text-align: left;
 }
 
 
 .markdown-preview-view h6
 {
-font-family: var(--font-family-mdpreview);
-font-weight: var(--text-title-font-weight);
-font-size: var(--font-size-h6) !important;
-color: var(--text-title-h6);
-line-height: var(--line-height-header-preview);
-text-align: left;
+  font-size: var(--font-size-h6);
+  font-weight: 600;
+  color: var(--text-title-h6);
+  line-height: var(--line-height-header-preview);
+  text-align: left;
 }
 
 .cm-header-1::after,cm-header-2::after,cm-header-3::after,cm-header-4::after,cm-header-5::after,cm-header-6::after,cm-header-7::after{
@@ -499,7 +495,47 @@ pre.code-block-pre__has-copy-button.cm-s-obsidian>*{
 }
 
 /* and task checkboxes */
-span.cm-formatting-task { display: inline !important; font-family: monospace; } 
+span.cm-formatting-task { 
+  display: inline !important; font-family: monospace; 
+} 
+.markdown-preview-view .task-list-item-checkbox{
+  filter:hue-rotate(140deg);
+  opacity: .9;
+}
+/* from pink topaz */
+span.cm-formatting-task {
+  display: inline !important; 
+}
+
+span.cm-formatting-task.cm-property {
+  color: var(--text-accent);
+} 
+
+div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-formatting-task.cm-meta,
+div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-formatting-task.cm-property {
+  color: transparent;
+  position: relative;
+}
+
+div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-formatting-task.cm-meta:after,
+div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-formatting-task.cm-property:after {
+  content: "☐";
+  position: absolute;
+  top: 2px;
+  left: -1px;
+  color: var(--text-normal);
+  font-size: 23px;
+}
+
+div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-formatting-task.cm-property:after {
+  content: "☑";
+  color: var(--text-accent) !important;
+}
+
+/*aligning checkbox icons*/
+.cm-formatting.cm-formatting-task.cm-meta {
+  padding-left: 3px;
+}
 
   markdown-preview-sizer markdown-preview-section{
     font-size: 20px !important;
@@ -810,17 +846,13 @@ div.slides-container > div >::-webkit-scrollbar-thumb{
   background: transparent !important;
 }
 
-/* setting */
+/* setting button*/
 button.mod-cta, button{
-  background-color: rgb(250, 87, 37);
+  background-color: rgb(250, 87, 37) !important;
   color: white !important;
-  border-bottom: 4px solid var(--orange2);
 }
 
-button:hover,button.mod-cta:hover{
-  border-bottom:0px ;
-  background: rgb(250, 87, 37) !important;
-}
+/* credit - yin and yang */
 
 /* graph */
 .graph-controls .search-input-container input:focus,
@@ -842,10 +874,10 @@ border: .025em solid var(--interactive-accent);
   }
 
 .graph-view.color-line-highlight {
-  color: var(--blue);
+  color: rgb(202, 56, 3);
   }
 .graph-view.color-line {
-  color: rgba(74, 76, 78, 0.336);
+  color: rgba(48, 54, 75, 0.445);
   opacity: 1;
   }
 .theme-dark .graph-view.color-fill-tag {
@@ -857,4 +889,18 @@ color: var(--orange2);
     
 .graph-view.color-fill-highlight {
 color: var(--orange-pink);
+}
+
+/* juggle compatability */
+button.juggl-button>svg>path{
+  fill: white !important;
+  opacity: 1 !important;
+}
+button:disabled>svg>path{
+  opacity: 0.5 !important;
+}
+
+/* Calendar Compatability */
+.filled.svelte-1widvzq{
+  fill: rgb(253, 236, 1) !important;
 }
